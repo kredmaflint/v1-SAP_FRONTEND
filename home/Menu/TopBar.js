@@ -1,5 +1,5 @@
 // TopBar.js
-import {topBarLogic, redirectToAbout} from './js/TopBarLogic.js';
+import {topBarLogic, redirectToPage} from './js/TopBarLogic.js';
 const TopBar = {
   template: `
     <div class="top-bar">
@@ -8,9 +8,9 @@ const TopBar = {
       </div>
       <nav class="navigation">
         <ul>
-          <li><a href="#home">Inicio</a></li>
-          <li><a href="#about" @click="changeTitle('Acerca')">Acerca</a></li>
-          <li><a href="#services">Servicios</a></li>
+          <li><a href="#" @click="changeTitle('Home')">Inicio</a></li>
+          <li><a href="#" @click="changeTitle('Acerca')">Acerca</a></li>
+          <li><a href="#" @click="changeTitle('Services')">Servicios</a></li>
           <li><a href="#contact">Contacto</a></li>
         </ul>
       </nav>
@@ -24,10 +24,8 @@ const TopBar = {
   methods: {
     changeTitle(newTitle) {
       this.title = newTitle;
-      if (newTitle === 'Acerca') {
-        redirectToAbout();
-        topBarLogic(this);
-      }
+      redirectToPage(newTitle);
+      topBarLogic(this);
     },
   },
   created() {
