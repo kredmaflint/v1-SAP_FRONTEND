@@ -10,45 +10,57 @@
     <link rel="shortcut icon" href="../../img/logo.png" type="image/x-icon">
 
     <!-- css de Solicitudes -->
-     <link rel="stylesheet" href="./solicss/SoliEstilos.css">
-</head>
-<body>
-    <div id="vue-app">
-        <top-bar></top-bar>
-      </div>
-      <div class="container">
-        <h1>Solicitud de Productos</h1>
+     <link rel="stylesheet" href="./solicss/styles_solicitudes.css">
+     <header>
+        <h1>Solicitud de Material Consumible</h1>
+    </header>
+    
+    <div class="container">
+        <h2>Datos de la Solicitud</h2>
         <form action="#" method="POST">
-            <label for="tipoProducto">Tipo de producto requerido:</label>
-            <select id="tipoProducto" name="tipoProducto" required>
-                <option value="">Seleccione un tipo</option>
-                <option value="oficina">Oficina</option>
+            <label for="numeroFolio">Número de Folio:</label>
+            <input type="text" id="numeroFolio" name="numeroFolio" placeholder="Ingrese el número de folio" required>
+    
+            <label for="partidaPresupuestal">Partida Presupuestal:</label>
+            <input type="text" id="partidaPresupuestal" name="partidaPresupuestal" placeholder="Ingrese la partida presupuestal" required>
+    
+            <label for="tipoMaterial">Tipo de Material Solicitado:</label>
+            <select id="tipoMaterial" name="tipoMaterial" required>
+                <option value="">Seleccione tipo de material</option>
                 <option value="papeleria">Papelería</option>
                 <option value="limpieza">Limpieza</option>
                 <option value="electronica">Electrónica</option>
+                <option value="oficina">Oficina</option>
             </select>
     
-            <label for="departamento">Departamento que lo requiere:</label>
-            <select id="departamento" name="departamento" required>
-                <option value="">Seleccione un departamento</option>
-                <option value="DP01">DP01</option>
-                <option value="DP02">DP02</option>
-                <option value="DP03">DP03</option>
-                <option value="DP04">DP04</option>
-            </select>
+            <label for="claveMaterial">Clave del Material:</label>
+            <input type="text" id="claveMaterial" name="claveMaterial" placeholder="Ingrese la clave del material" required>
     
-            <label for="nombreUsuario">Nombre del usuario:</label>
-            <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Ingrese su nombre" required>
+            <label for="cantidad">Cantidad Solicitada:</label>
+            <input type="number" id="cantidad" name="cantidad" placeholder="Ingrese la cantidad solicitada" required>
     
-            <label for="cargoUsuario">Cargo del usuario:</label>
-            <input type="text" id="cargoUsuario" name="cargoUsuario" placeholder="Ingrese su cargo" required>
+            <label for="costoPromedio">Costo Promedio por Material:</label>
+            <input type="number" id="costoPromedio" name="costoPromedio" placeholder="Ingrese el costo promedio del material" required>
+    
+            <label for="costoTotal">Costo Total:</label>
+            <input type="number" id="costoTotal" name="costoTotal" placeholder="Costo total (automático)" readonly>
     
             <input type="submit" value="Enviar Solicitud">
         </form>
-    
-        <div class="footer">
-            &copy; 2024 - Sistema de Solicitudes
-        </div>
     </div>
+    
+    <script>
+        // Script para calcular el costo total automáticamente
+        document.getElementById('cantidad').addEventListener('input', calculateCost);
+        document.getElementById('costoPromedio').addEventListener('input', calculateCost);
+    
+        function calculateCost() {
+            const cantidad = document.getElementById('cantidad').value || 0; // Valor por defecto si está vacío
+            const costoPromedio = document.getElementById('costoPromedio').value || 0; // Valor por defecto si está vacío
+            const costoTotal = cantidad * costoPromedio;
+    
+            document.getElementById('costoTotal').value = costoTotal.toFixed(2); // Mostrar el costo total con dos decimales
+        }
+    </script>
 </body>
 </html>
