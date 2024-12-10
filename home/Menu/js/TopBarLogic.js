@@ -4,23 +4,29 @@ export function redirectToPage(page) {
 
   if (page === 'Home') {
     pageUrl = `${window.location.origin}/home/home.html`;
-  } else if (page === 'Acerca') {
-    pageUrl = `${window.location.origin}/home/about/acerca.html`;
-  } else if (page === 'Services') {
-    pageUrl = `${window.location.origin}/home/services/servicios.html`;
+  } else if (page === 'Solicitudes') {
+    pageUrl = `${window.location.origin}/home/Solicitudes/solicitud.html`;
+  } else if (page === 'ControlPresupuestal') {
+    pageUrl = `${window.location.origin}/home/ControlPresupuestal/control.html`;
+  } else if (page === 'Adquisiciones') {
+    pageUrl = `${window.location.origin}/home/Adquisiciones/Adquisiciones.html`;
   }
 
   if (pageUrl) {
-    window.location.href = pageUrl; // Redirige a la página correspondiente
+    window.location.href = pageUrl; 
   } else {
     console.error('La página especificada no existe.');
   }
 }
 
-
 export function topBarLogic(component) {
-    // Redirigir a la página 'acerca.html'
-    setTimeout(() => {
-      component.title = 'Bienvenido a Mi Sitio';
-    }, 6000);
-  }  
+  setTimeout(() => {
+    component.title = 'Bienvenido a Mi Sitio';
+  }, 6000);
+}
+
+export function logout() {
+  console.log('Cerrando sesión...');
+  sessionStorage.removeItem('userType'); 
+  window.location.href = `${window.location.origin}/index.html`; 
+}
