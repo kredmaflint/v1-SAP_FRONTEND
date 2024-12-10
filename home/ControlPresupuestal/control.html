@@ -13,59 +13,55 @@
     <div id="vue-app">
         <top-bar></top-bar>
     </div>
-
     <div class="container">
-        <div class="section">
-            <h2>Departamento (DP01)</h2>
-            <div class="budget-item">
-                <span>Presupuesto Asignado</span>
-                <span>$5000</span>
-            </div>
-            <div class="budget-item">
-                <span>Gastos</span>
-                <span>$3000</span>
-            </div>
-        </div>
+        <h2>Registrar Partida Presupuestal</h2>
+        <form action="#" method="POST">
+            <label for="claveDepartamento">Clave de Departamento:</label>
+            <input type="text" id="claveDepartamento" name="claveDepartamento" placeholder="Ingrese la clave del departamento" required>
     
-        <div class="section">
-            <h2>Departamento (DP02)</h2>
-            <div class="budget-item">
-                <span>Presupuesto Asignado</span>
-                <span>$6000</span>
-            </div>
-            <div class="budget-item">
-                <span>Gastos</span>
-                <span>$2500</span>
-            </div>
-        </div>
+            <label for="claveConcepto">Clave de Concepto:</label>
+            <input type="text" id="claveConcepto" name="claveConcepto" placeholder="Ingrese la clave del concepto" required>
     
-        <div class="section">
-            <h2>Departamento (DP03)</h2>
-            <div class="budget-item">
-                <span>Presupuesto Asignado</span>
-                <span>$4500</span>
-            </div>
-            <div class="budget-item">
-                <span>Gastos</span>
-                <span>$2000</span>
-            </div>
-        </div>
+            <label for="disponibilidadAnual">Disponibilidad Financiera Anual:</label>
+            <input type="number" id="disponibilidadAnual" name="disponibilidadAnual" placeholder="Ingrese la disponibilidad anual" required>
     
-        <div class="section">
-            <h2>Departamento (DP04)</h2>
-            <div class="budget-item">
-                <span>Presupuesto Asignado</span>
-                <span>$7000</span>
-            </div>
-            <div class="budget-item">
-                <span>Gastos</span>
-                <span>$3500</span>
-            </div>
-        </div>
+            <label for="conceptosAutorizados">Conceptos Autorizados:</label>
+            <select id="conceptosAutorizados" name="conceptosAutorizados" required>
+                <option value="">Seleccione un concepto</option>
+                <option value="materiales">Materiales</option>
+                <option value="servicios">Servicios</option>
+                <option value="mantenimiento">Mantenimiento</option>
+                <option value="otros">Otros</option>
+            </select>
+    
+            <input type="submit" value="Registrar Partida">
+        </form>
+    
+        <h2>Control de Gastos Mensuales</h2>
+        <form action="#" method="POST">
+            <label for="mes">Mes:</label>
+            <select id="mes" name="mes" required>
+                <option value="">Seleccione un mes</option>
+                <option value="enero">Enero</option>
+                <option value="febrero">Febrero</option>
+                <option value="marzo">Marzo</option>
+                <option value="abril">Abril</option>
+                <option value="mayo">Mayo</option>
+                <option value="junio">Junio</option>
+                <option value="julio">Julio</option>
+                <option value="agosto">Agosto</option>
+                <option value="septiembre">Septiembre</option>
+                <option value="octubre">Octubre</option>
+                <option value="noviembre">Noviembre</option>
+                <option value="diciembre">Diciembre</option>
+            </select>
+    
+            <label for="gastosMensuales">Gastos Mensuales:</label>
+            <input type="number" id="gastosMensuales" name="gastosMensuales" placeholder="Ingrese los gastos del mes" required>
+    
+            <input type="submit" value="Registrar Gastos">
+        </form>
     </div>
     
-    <footer>
-        &copy; 2024 Control Presupuestal
-    </footer>
 </body>
 </html>
