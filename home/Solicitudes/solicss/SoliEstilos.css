@@ -1,4 +1,11 @@
-.container {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+.soli-container {
     max-width: 600px;
     margin: 50px auto;
     padding: 20px;
@@ -7,7 +14,7 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.container h1 {
+.soli-container h1 {
     text-align: center;
     font-size: 2.2em;
     color: #333;
@@ -15,19 +22,19 @@
     text-transform: uppercase;
 }
 
-.container form {
+.soli-form {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.container label {
+.soli-form label {
     font-size: 1.1em;
     color: #555;
     margin-bottom: 5px;
 }
 
-.container select, .container input[type="text"] {
+.soli-form select, .soli-form input[type="text"] {
     padding: 10px;
     font-size: 1em;
     border: 1px solid #ddd;
@@ -36,11 +43,11 @@
     transition: border-color 0.3s ease;
 }
 
-.container select:focus, .container input[type="text"]:focus {
+.soli-form select:focus, .soli-form input[type="text"]:focus {
     border-color: #0066cc;
 }
 
-.container input[type="submit"] {
+.soli-form input[type="submit"] {
     padding: 12px 20px;
     background-color: #0066cc;
     color: white;
@@ -51,11 +58,11 @@
     transition: background-color 0.3s ease;
 }
 
-.container input[type="submit"]:hover {
+.soli-form input[type="submit"]:hover {
     background-color: #0057a1;
 }
 
-.footer {
+.soli-footer {
     text-align: center;
     margin-top: 30px;
     font-size: 0.9em;
