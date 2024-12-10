@@ -9,15 +9,14 @@
     <script src="../Menu/TopBar.js" type="module"></script>
     <link rel="shortcut icon" href="../../img/logo.png" type="image/x-icon">
 
-    <!-- css de Solicitudes -->
-     <link rel="stylesheet" href="./solicss/styles_solicitudes.css">
-     <div id="vue-app">
+    <!-- estilos de solicitudes -->
+     <link rel="stylesheet" href="./solicss/estilosSoli.css">
+</head>
+<body>
+    <div id="vue-app">
         <top-bar></top-bar>
-      </div>
-     <header>
-        <h1>Solicitud de Material Consumible</h1>
-    </header>
-    
+    </div>
+
     <div class="container">
         <h2>Datos de la Solicitud</h2>
         <form action="#" method="POST">
@@ -51,19 +50,5 @@
             <input type="submit" value="Enviar Solicitud">
         </form>
     </div>
-    
-    <script>
-        // Script para calcular el costo total automáticamente
-        document.getElementById('cantidad').addEventListener('input', calculateCost);
-        document.getElementById('costoPromedio').addEventListener('input', calculateCost);
-    
-        function calculateCost() {
-            const cantidad = document.getElementById('cantidad').value || 0; // Valor por defecto si está vacío
-            const costoPromedio = document.getElementById('costoPromedio').value || 0; // Valor por defecto si está vacío
-            const costoTotal = cantidad * costoPromedio;
-    
-            document.getElementById('costoTotal').value = costoTotal.toFixed(2); // Mostrar el costo total con dos decimales
-        }
-    </script>
 </body>
 </html>
