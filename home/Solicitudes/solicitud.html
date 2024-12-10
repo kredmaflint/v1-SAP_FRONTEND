@@ -15,9 +15,41 @@
     </div>
 
     <!-- lo mismo  -->
-    <div>
-        <h2>Contenido HTML</h2>
-        <p>Este es el contenido de Solicitudes en HTML puro.</p>
+
+    <div class="container">
+        <h1>Solicitud de Productos</h1>
+        <form action="#" method="POST">
+            <label for="tipoProducto">Tipo de producto requerido:</label>
+            <select id="tipoProducto" name="tipoProducto" required>
+                <option value="">Seleccione un tipo</option>
+                <option value="oficina">Oficina</option>
+                <option value="papeleria">Papelería</option>
+                <option value="limpieza">Limpieza</option>
+                <option value="electronica">Electrónica</option>
+            </select>
+    
+            <label for="departamento">Departamento que lo requiere:</label>
+            <select id="departamento" name="departamento" required>
+                <option value="">Seleccione un departamento</option>
+                <option value="DP01">DP01</option>
+                <option value="DP02">DP02</option>
+                <option value="DP03">DP03</option>
+                <option value="DP04">DP04</option>
+            </select>
+    
+            <label for="nombreUsuario">Nombre del usuario:</label>
+            <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Ingrese su nombre" required>
+    
+            <label for="cargoUsuario">Cargo del usuario:</label>
+            <input type="text" id="cargoUsuario" name="cargoUsuario" placeholder="Ingrese su cargo" required>
+    
+            <input type="submit" value="Enviar Solicitud">
+        </form>
+    
+        <div class="footer">
+            &copy; 2024 - Sistema de Solicitudes
+        </div>
     </div>
+    
 </body>
 </html>
