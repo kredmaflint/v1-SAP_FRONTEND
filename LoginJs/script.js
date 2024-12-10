@@ -1,27 +1,47 @@
 const user = {
-    username: 'admin',
-    password: '1234',
-    userType: 'admin',
-    HomePage: './home/home.html',
-  
-    Credentials: function () {
-      const inputUserName = document.getElementById('username').value;
-      const inputPassword = document.getElementById('password').value;
-  
-      if (inputUserName === "" || inputPassword === "") {
-        this.mostrarModal("Por favor, ingresa tu nombre de usuario y contraseña.");
-      } else if (inputUserName !== this.username) {
-        this.mostrarModal("Nombre de usuario incorrecto.");
-      } else if (inputPassword !== this.password) {
-        this.mostrarModal("Contraseña incorrecta.");
-      } else {
-        sessionStorage.setItem('userType', this.userType);
-        window.location.href = this.HomePage;
-      }
-    },
-  
-    mostrarModal: function (message) {
-      alert(message);
+  HomePage: './home/home.html',
+
+  Credentials: async function () {
+    const inputUserName = document.getElementById('username').value;
+    const inputPassword = document.getElementById('password').value;
+
+    if (inputUserName === "" || inputPassword === "") {
+      this.mostrarModal("Por favor, ingresa tu nombre de usuario y contraseña.");
+      return;
     }
-  };  
-  // comentario inecesario
+
+    try {
+      // Realiza la solicitud POST a la URL de autenticación
+      const response = await fetch('http://localhost:8000/src/Auth.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: inputUserName,
+          password: inputPassword
+        })
+      });
+
+      if (!response.ok) {
+        this.mostrarModal("Error en la solicitud: " + response.status);
+        return;
+      }
+
+      const data = await response.json();
+
+      if (data.success) {
+        sessionStorage.setItem('userType', data.userType); // Asume que la API devuelve el rol del usuario
+        window.location.href = this.HomePage;
+      } else {
+        this.mostrarModal(data.message || "Nombre de usuario o contraseña incorrectos.");
+      }
+    } catch (error) {
+      this.mostrarModal("Error de conexión: " + error.message);
+    }
+  },
+
+  mostrarModal: function (message) {
+    alert(message);
+  }
+};
