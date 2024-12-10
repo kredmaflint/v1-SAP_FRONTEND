@@ -18,8 +18,8 @@ const user = {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          username: inputUserName,
-          password: inputPassword
+          UserName: inputUserName,  
+          Password: inputPassword  
         })
       });
 
