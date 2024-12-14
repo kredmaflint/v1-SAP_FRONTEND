@@ -11,6 +11,10 @@
 
     <!-- css de adquisiciones -->
      <link rel="stylesheet" href="./adquicss/adqui.css">
+
+     <!-- script -->
+      <script src="./adquiJS/Adqui.js"></script>
+
 </head>
 <body>
     <div id="vue-app">
@@ -18,39 +22,13 @@
       </div>
 
       <div class="container">
-        <h2>Datos de la Requisición</h2>
-        <form action="#" method="POST">
-            <label for="fecha">Fecha de la Requisición:</label>
-            <input type="date" id="fecha" name="fecha" required>
-    
-            <label for="partidaPresupuestal">Partida Presupuestal:</label>
-            <input type="text" id="partidaPresupuestal" name="partidaPresupuestal" placeholder="Ingrese partida presupuestal" required>
-    
+        <h2>Registrar Material</h2>
+        <form id="materialForm" method="POST">
             <label for="descripcion">Descripción del Material:</label>
-            <input type="text" id="descripcion" name="descripcion" placeholder="Descripción del material requerido" required>
+            <input type="text" id="descripcion" name="Descripcion" placeholder="Descripción del material requerido" required>
     
-            <label for="cantidad">Cantidad Requerida:</label>
-            <input type="text" id="cantidad" name="cantidad" placeholder="Cantidad de material requerido" required>
-    
-            <h2>Datos del Proveedor</h2>
-            
-            <label for="nombreProveedor">Nombre del Proveedor:</label>
-            <input type="text" id="nombreProveedor" name="nombreProveedor" placeholder="Nombre del proveedor" required>
-    
-            <label for="nombreComercial">Nombre Comercial:</label>
-            <input type="text" id="nombreComercial" name="nombreComercial" placeholder="Nombre comercial del proveedor">
-    
-            <label for="direccion">Dirección:</label>
-            <input type="text" id="direccion" name="direccion" placeholder="Dirección del proveedor">
-    
-            <label for="telefono">Número Telefónico:</label>
-            <input type="text" id="telefono" name="telefono" placeholder="Número telefónico del proveedor">
-    
-            <label for="rfc">Registro Federal de Contribuyentes (RFC):</label>
-            <input type="text" id="rfc" name="rfc" placeholder="RFC del proveedor">
-    
-            <label for="tipoMaterial">Tipo de Material Requerido:</label>
-            <select id="tipoMaterial" name="tipoMaterial">
+            <label for="tipoMaterial">Tipo de Material:</label>
+            <select id="tipoMaterial" name="TipoMaterial" required>
                 <option value="">Seleccione tipo de material</option>
                 <option value="oficina">Oficina</option>
                 <option value="papeleria">Papelería</option>
@@ -58,8 +36,30 @@
                 <option value="electronica">Electrónica</option>
             </select>
     
-            <input type="submit" value="Enviar Requisición">
+            <label for="costoPromedioUnidad">Costo Promedio por Unidad:</label>
+            <input type="number" step="0.01" id="costoPromedioUnidad" name="CostoPromedioUnidad" placeholder="Costo promedio por unidad" required>
+    
+            <label for="existencia">Existencia en Inventario:</label>
+            <input type="number" id="existencia" name="Existencia" placeholder="Cantidad disponible en inventario" required>
+    
+            <input type="submit" value="Enviar Información de Material">
         </form>
+    
+        <table id="partidasTable">
+            <thead>
+                <tr>
+                    <th>Clave Material</th>
+                    <th>Descripción</th>
+                    <th>Tipo de Material</th>
+                    <th>Costo Promedio por Unidad</th>
+                    <th>Existencia</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
     </div>
+    
+    
 </body>
 </html>
